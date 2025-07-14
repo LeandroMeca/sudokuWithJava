@@ -13,7 +13,7 @@ public class Board {
 
     private final List<List<Space>> spaces;
 
-    public Board(List<List<Space>> space) {
+    public Board(final List<List<Space>> space) {
         this.spaces = space;
     }
 
@@ -24,7 +24,7 @@ public class Board {
 
 
     public GameStatusEnum getStatus(){
-        if (spaces.stream().flatMap(Collection::stream).noneMatch(s -> s.isFixed() && nonNull(s.getActual()))){
+        if (spaces.stream().flatMap(Collection::stream).noneMatch(s -> !s.isFixed() && nonNull(s.getActual()))){
             return NON_START;
         }
         return spaces.stream().flatMap(Collection::stream).anyMatch(s -> isNull(s.getActual())) ? INCOMPLETE : COMPLETE;
@@ -56,13 +56,13 @@ public class Board {
         if (space.isFixed()){
             return false;
         }
-        space.clearSoace();
+        space.clearSpace();
         return true;
     }
 
 
     public void reset(){
-        spaces.forEach(c -> c.forEach(Space::clearSoace));
+        spaces.forEach(c -> c.forEach(Space::clearSpace));
     }
 
 

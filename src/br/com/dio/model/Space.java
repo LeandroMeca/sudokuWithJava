@@ -37,7 +37,7 @@ public class Space {
     }
 
 
-    public void clearSoace(){
+    public void clearSpace(){
         setActual(null);
     }
 
