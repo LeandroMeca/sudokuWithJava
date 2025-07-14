@@ -1,4 +1,4 @@
-Sudoku em Java
+#Sudoku em Java
 Descrição
 Este projeto é uma implementação de um jogo de Sudoku,
 desenvolvido utilizando a linguagem de programação Java, 
